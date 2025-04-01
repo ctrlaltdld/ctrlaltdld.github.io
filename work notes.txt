@@ -1,0 +1,86 @@
+maps (1 compilation, 2 regular quads)
+-> orangeburg 100k
+-> a random quad
+-> edgematching example? (myrtle beach edgematching w/ lidar & google earth aerials?)
+
+apps and tools
+filter-app
+-> scgs quad status map
+-> scgs hub site
+
+programming
+-> earthquake db (maybe link to earthquake StoryMap by Jackie and Logan that uses web layer?)
+-> scgs toolbox
+-> SCGS web version of gems publication
+-> deep learning algorithm for digitizing paper maps (+poster)
+
+gems
+-> gems instrucitonal video
+-> gems survey
+-> scgs gems guidance document
+-> fgdc stylx
+
+earthquake script
+This script was written in Python and runs as a custom geoprocessing tool in ArcGIS Pro.
+It updates and manages a geodatabase by fetching data from the USGS's earthquake API. Data is downloaded to a scratch CSV according to the date of last runtime, plotted using lat/long coordinates, appended to the main feature class, and filtered for duplicates or updated records. Additionally, the tool updates a second feature class that stores only quakes of interest occuring in an ongoing swarm around the Elgin, SC area.
+The script can be run by a user, but it also runs autonomously at 12pm EST every day via Microsoft Task Scheduler.
+Both feature classes are linked to ArcGIS Online layers, through which the data is viewable online in StoryMaps and other SCGS apps -- such as this StoryMap about South Carolina's earthquake history:
+
+
+Orangeburg 100k
+My work included extensive edgematching, aiding geologists in reinterpretation, ensuring GeMS compliance, providing input for cartographic choices, and drafting dozens of map unit descriptions.
+
+SCGS Quadrangle Status Map
+This app provides members of the public with the most up-to-date information available concerning the mapping status of 7.5-minute quadrangles in South Carolina.
+Users can filter and sort through publications by quadrangle name, year mapped, funding source, and geographic area.
+On the backend, the feature class is linked to a nonspatial table that is updated internally as quadrangles are mapped and published. The spatial and nonspatial components of the dataset are separate, but always synced; leveraging relationship classes in this way allows for a level of complexity that the previous viewer couldn't accomodate, such as displaying multiple publications per quadrangle.
+
+SCGS toolbox
+Various tools for internal SCGS use, mostly concerning GeMS data. Examples include:
+-A tool that converts Survey123 forms to Strater-compatible cross sections.
+-A tool that calculates the azimuth of orientation measurements from paper maps.
+-A tool that adds custom fields to . The purpose of these is to document basic drill hole information directly in point layers.
+
+SCGS Hub site
+New initiative 
+
+GeMS Video Guide
+An ongoing project. This series is an extensive rework of the original Getting Started With GeMS video series, funded by an exclusive cooperative agreement between SCGS and USGS. This is a highly requested resource by the geologic mapping community, as my colleagues and I discovered after the conclusion of the nationwide survey we designed and administered together. Its purpose is to educate geologists nationwide on implementing the USGS's GeMS schema into their mapping workflows.
+Supplementing the video series is a 40-page workflow document, which I wrote initially to train SCGS staff on the schema.
+
+
+
+---
+ACTUAL CONTENTS
+
+APPS (filter-app)
+earthquake database
+scgs quadrangle status map
+scgs open data portal
+landownder information in the field
+
+MAPS (filter-map)
+geologic map of the orangeburg area
+geologic map of the pond branch quadrangle
+catalogue of mineral localities of south carolina
+
+PROGRAMMING (filter-program)
+ai driven map vectorization
+scgs geoprocessing tools
+
+GEMS (filter-gems) (support?)
+fgdc cartographic standard for geologic map symbolization (arcgis pro implementation)
+gems tutorial series
+gems user assessment survey
+
+MISC (filter-misc)
+shoreline change projects
+geochemical data visualization in R
+
+
+https://scdnr.maps.arcgis.com/apps/instant/interactivelegend/index.html?appid=bb9dee990af64c709c4356ee319dbc01
+
+<!-- Add script to the <head> of your page to load the embeddable map component -->
+<script type="module" src="https://js.arcgis.com/embeddable-components/4.32/arcgis-embeddable-components.esm.js"></script>
+<!-- Add custom element to <body> of your page -->
+ <arcgis-embedded-map style="height:600px;width:700px;" item-id="964f839094dc4beb90aa77295ad8089e" theme="light" heading-enabled legend-enabled portal-url="https://scdnr.maps.arcgis.com" ></arcgis-embedded-map>
